@@ -1,0 +1,77 @@
+// Validating UserName. Alphanumeric with Underscore
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+    	Scanner in = new Scanner(System.in);
+    	int x = in.nextInt();
+    	ArrayList<String> myList = new ArrayList<String>();
+    	
+    	for(int i=0; i<=x; i++) {
+    		myList.add(in.nextLine());
+    	}
+    	for(int i=1; i<=x; i++) {
+    		if(lenValid(myList.get(i)) && num(myList.get(i)) && alph(myList.get(i))) {
+    			System.out.println("Valid");
+    		}
+    		else {
+    			System.out.println("Invalid");
+
+    		}
+    	}
+    	
+    	
+    }
+    
+    public static boolean lenValid(String Name) {
+    	
+    	if(Name.length()>=8 && Name.length()<=30) {
+    		return true;
+    	}
+    	
+    	else {
+    	return false;
+    	}
+		
+	}
+public static boolean num(String Name) {
+    	 
+	boolean bln = true;
+	
+    	for(int i=0; i<Name.length();i++) {
+    		if(Name.charAt(i)>='0' && Name.charAt(i)<='9' || Name.charAt(i)>='A' && Name.charAt(i)<='Z' || Name.charAt(i)>='a' && Name.charAt(i)<='z'|| Name.charAt(i) == '_') {
+    			bln=true;
+    		}
+    		else {
+    		bln= false;
+    		break;
+    		}
+    	}
+    	return bln;
+}
+public static boolean alph(String Name) {
+	
+	if(Name.charAt(0)>='A' && Name.charAt(0)<='Z' || Name.charAt(0)>='a' && Name.charAt(0)<='z') {
+		return true;
+	}
+	else {
+		return false;
+		
+		}
+	}
+}
+
+
+
+    
+    
+
+
+
+
