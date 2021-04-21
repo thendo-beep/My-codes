@@ -1,0 +1,54 @@
+//it divides a string into 3 parts back to front and front to back using and output the smallest string and the largest after lexicographical order sort
+
+import java.util.*;
+
+public class Solution {
+
+    public static String getSmallestAndLargest(String s, int k) {
+        
+       ArrayList<String> al = new ArrayList<String>();
+        
+        
+       int i= k;
+       int x=0;
+      while(i< s.length()) {
+    	  
+    	 al.add( s.substring(x, i));
+    	  i+=k;
+    	  x+=k;
+    	    
+      }
+      int i1= s.length() ;
+      int x1= s.length()-k;
+      while(x1>  0) {
+    	  
+     	 al.add( s.substring(x1, i1));
+     	  i1-=k;
+     	  x1-=k;
+     	    
+       }
+   
+     Collections.sort(al);
+       	
+        
+        
+        // Complete the function
+        // 'smallest' must be the lexicographically smallest substring of length 'k'
+        // 'largest' must be the lexicographically largest substring of length 'k'
+        
+        
+        
+        return al.get(0) + "\n" + al.get(al.size()-1) ;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String s = scan.next();
+        int k = scan.nextInt();
+        scan.close();
+      
+        System.out.println(getSmallestAndLargest(s, k));
+    }
+
+}
